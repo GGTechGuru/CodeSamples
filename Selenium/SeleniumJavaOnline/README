@@ -1,0 +1,1 @@
+E.g.:  javac -cp .:`find * -name "*.jar" | tr "\n" ":"` MyRtmpClient.java
