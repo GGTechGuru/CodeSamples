@@ -27,6 +27,8 @@ public class FramesA {
 			TimeUnit.SECONDS.sleep(5);
 		}
 		catch (Exception e) {}
+                
+                driver.close();
 	
 		driver.quit();
 	
