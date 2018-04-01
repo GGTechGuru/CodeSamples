@@ -11,8 +11,10 @@ selenium = Selenium::WebDriver.for(:firefox)
 
 selenium.get("http://www.google.com")
 selenium.find_element(:name, "q").clear
-selenium.find_element(:name, "q").send_keys("Test automation jobs, San Jose, CA")
+# selenium.find_element(:name, "q").send_keys("Test automation jobs, San Jose, CA")
+
+selenium.find_element(:name, "q").send_keys("Selenium Ruby binding code samples")
 selenium.find_element(:name, "btnK").click
 
-sleep(15)
+sleep(120)
 selenium.quit
