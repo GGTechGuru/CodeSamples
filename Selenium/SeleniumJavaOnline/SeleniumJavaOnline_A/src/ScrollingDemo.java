@@ -2,7 +2,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class ScrollingDemo {
@@ -10,10 +10,10 @@ public class ScrollingDemo {
 	public static void main(String[] argv)	{
 		
 		System.setProperty(
-				"webdriver.chrome.driver", 
-				"/home/croesus/node_modules/chromedriver/lib/chromedriver/chromedriver");
-		
-		WebDriver driver = new ChromeDriver();	
+				"webdriver.gecko.driver",
+				"/home/croesus/node_modules/geckodriver/geckodriver");
+				
+		WebDriver driver = new FirefoxDriver();
                 
 		driver.get("http://www.seleniumhq.org/");
 

@@ -26,8 +26,8 @@ require 'selenium-webdriver'
 
 opts = Selenium::WebDriver::Firefox::Options.new
 opts.add_argument('--headless')
-# wbdrv = Selenium::WebDriver.for :firefox, options: opts
-wbdrv = Selenium::WebDriver.for :firefox
+wbdrv = Selenium::WebDriver.for :firefox, options: opts
+# wbdrv = Selenium::WebDriver.for :firefox
 
 wbdrv.navigate.to 'https://duckduckgo.com'
 
