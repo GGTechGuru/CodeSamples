@@ -53,10 +53,11 @@ public class CraigslistUpdateToyotaPriusSearch {
                 
                 // WebElement searchToEditParent = driver.findElement(By.xpath(".."));
                               
-                try	{ TimeUnit.SECONDS.sleep(5); } catch (Exception e) {} 
+                // try	{ TimeUnit.SECONDS.sleep(5); } catch (Exception e) {} 
                 // driver.findElement(By.xpath(".//button[text()='edit']")).click();                
                                 
                 // wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("query")));
+                wait.until(ExpectedConditions.elementToBeClickable(By.id("query")));
                 WebElement savedSearchField = driver.findElement(By.id("query")); 
 		
                 savedSearchField.clear();
