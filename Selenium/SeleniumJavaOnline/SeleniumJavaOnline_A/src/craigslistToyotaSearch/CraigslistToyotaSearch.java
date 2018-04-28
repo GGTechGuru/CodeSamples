@@ -5,12 +5,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;	
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
- * @author croesus
+ * @author Gerard Anthony Gold
+ * Search for Toyota in Craigslist
+ * Print all titles (only) in the second page (to console).
+ * Save the search.
+ * I didn't have time to modularize the code or use properties instead of hardcoding -- sorry!
  */
 public class CraigslistToyotaSearch {
     
@@ -18,13 +23,14 @@ public class CraigslistToyotaSearch {
 		
 		System.setProperty(
 				"webdriver.gecko.driver",
-				"/home/croesus/node_modules/geckodriver/geckodriver");
-						
-		WebDriver   driver = new FirefoxDriver();	
+				"/home/croesus/node_modules/geckodriver/geckodriver");					
+                
+                WebDriver   driver = new FirefoxDriver();	                
                 WebDriverWait wait = new WebDriverWait(driver, 5);
 
                 driver.get("https://sfbay.craigslist.org/");
                 
+                // Enter Toyota as a search.
                 WebElement searchField = driver.findElement(By.id("query"));               
                 searchField.sendKeys("Toyota");
                 searchField.submit();
@@ -38,6 +44,7 @@ public class CraigslistToyotaSearch {
                     System.out.println(row.getText());
                 }
                 
+                // Save search by logging in.
                 driver.findElement(By.linkText("save search")).click();
                 
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputEmailHandle")));
@@ -51,8 +58,8 @@ public class CraigslistToyotaSearch {
                 // Verify it's in saved searches.
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("search terms: Toyota,")));               
 
-                driver.findElement(By.linkText("log out")).click();
-		
+                
+                driver.findElement(By.linkText("log out")).click();		
                 driver.quit();
 	
 	}
