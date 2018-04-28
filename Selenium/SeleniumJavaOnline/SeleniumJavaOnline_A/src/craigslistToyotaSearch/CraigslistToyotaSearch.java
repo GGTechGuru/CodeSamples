@@ -48,11 +48,11 @@ public class CraigslistToyotaSearch {
                 driver.findElement(By.linkText("save search")).click();
                 
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputEmailHandle")));
-                WebElement emailField = driver.findElement(By.id("inputEmailHandle"));               
-                emailField.sendKeys("gerard.mba.mscs@gmail.com");
+                WebElement emailField = driver.findElement(By.id("inputEmailHandle"));              
+                emailField.sendKeys(System.getenv("TEST_EM"));
                 
                 WebElement pwdField = driver.findElement(By.id("inputPassword"));
-                pwdField.sendKeys("PoBox5533");
+                pwdField.sendKeys(System.getenv("TEST_PWD_CL"));
                 pwdField.submit();
                 
                 // Verify it's in saved searches.

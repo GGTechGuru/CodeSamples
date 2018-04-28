@@ -34,10 +34,10 @@ public class CraigslistUpdateToyotaPriusSearch {
                 
                 wait.until(ExpectedConditions.elementToBeClickable(By.id("inputEmailHandle")));
                 WebElement emailField = driver.findElement(By.id("inputEmailHandle"));               
-                emailField.sendKeys("gerard.mba.mscs@gmail.com");
+                emailField.sendKeys(System.getenv("TEST_EM"));
                 
                 WebElement pwdField = driver.findElement(By.id("inputPassword"));
-                pwdField.sendKeys("PoBox5533");
+                pwdField.sendKeys(System.getenv("TEST_PWD_CL"));
                 pwdField.submit();
                 
                 // Click on the "searches" tab.
