@@ -21,6 +21,10 @@ public class CraigslistToyotaSearch {
     
 	public static void main(String[] argv)	{
 		
+            // Can modularize out of main
+            
+            // Can make browser selectable
+            
 		System.setProperty(
 				"webdriver.gecko.driver",
 				"/home/croesus/node_modules/geckodriver/geckodriver");					
@@ -28,16 +32,21 @@ public class CraigslistToyotaSearch {
                 WebDriver   driver = new FirefoxDriver();	                
                 WebDriverWait wait = new WebDriverWait(driver, 5);
 
+                // Can take from property or other
                 driver.get("https://sfbay.craigslist.org/");
                 
                 // Enter Toyota as a search.
                 WebElement searchField = driver.findElement(By.id("query"));               
+                
+                // Can make searh term configurable in property or other
                 searchField.sendKeys("Toyota");
                 searchField.submit();
                 
+                // Can put link text in mnemonic constant
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("next >")));
                 driver.findElement(By.linkText("next >")).click();                                      
                 
+                // Can put locator text in mnemonic constant
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='result-title hdrlnk']")));
                 List<WebElement> resultRows = driver.findElements(By.xpath("//a[@class='result-title hdrlnk']"));               
                 for (WebElement row : resultRows) {
@@ -45,6 +54,7 @@ public class CraigslistToyotaSearch {
                 }
                 
                 // Save search by logging in.
+                // Ch: Can put link text in mnemonic constant
                 driver.findElement(By.linkText("save search")).click();
                 
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputEmailHandle")));
